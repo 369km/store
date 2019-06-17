@@ -8,5 +8,5 @@ target
 **/.settings
 **/.classpath
 **/.project
-.idea/
+.idea
 *.iml
