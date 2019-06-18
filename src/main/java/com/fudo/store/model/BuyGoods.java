@@ -4,23 +4,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "buy_goods")
-public class BuyGoods {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
+public class BuyGoods extends BaseModel{
     @Column(name = "goods_id")
     private Integer goodsId;
     @Column(name = "amount")
     private Long amount;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public Integer getGoodsId() {
         return goodsId;

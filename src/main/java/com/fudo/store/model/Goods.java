@@ -5,11 +5,7 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "goods")
-public class Goods {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
+public class Goods extends BaseModel{
     @Column(name = "name")
     private String name;
     @Column(name = "specs")
@@ -18,14 +14,6 @@ public class Goods {
     private BigDecimal buyPrice;
     @Column(name = "sell_price")
     private BigDecimal sellPrice;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

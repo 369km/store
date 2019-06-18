@@ -5,11 +5,7 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "stock")
-public class Stock {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
+public class Stock extends BaseModel{
     @Column(name = "goods_id")
     private Integer goodsId;
     @Column(name = "total")
@@ -22,14 +18,6 @@ public class Stock {
     private BigDecimal cost;
     @Column(name = "profit")
     private BigDecimal profit;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public Integer getGoodsId() {
         return goodsId;

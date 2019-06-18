@@ -4,11 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "supplier")
-public class Supplier {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
+public class Supplier extends BaseModel{
     @Column(name = "name")
     private String name;
     @Column(name = "weichat")
@@ -17,14 +13,6 @@ public class Supplier {
     private String phone;
     @Column(name = "address")
     private String address;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
