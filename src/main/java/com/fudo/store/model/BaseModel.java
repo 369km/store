@@ -10,10 +10,9 @@ public class BaseModel {
     @Column(name = "id")
     protected Integer id;
     @Column(name = "create_time", updatable = false)
-    protected LocalDateTime createTime;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "creator_id", updatable = false)
-    protected User user;
+    protected LocalDateTime createTime = LocalDateTime.now();
+    @Column(name = "creator_id", updatable = false)
+    protected Integer creatorId;
 
     public Integer getId() {
         return id;
@@ -31,11 +30,11 @@ public class BaseModel {
         this.createTime = createTime;
     }
 
-    public User getUser() {
-        return user;
+    public Integer getCreatorId() {
+        return creatorId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setCreatorId(Integer creatorId) {
+        this.creatorId = creatorId;
     }
 }
