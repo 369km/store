@@ -1,12 +1,11 @@
 package com.fudo.store.service;
 
 import com.fudo.store.model.Stock;
-import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface StockService {
     Page<Stock> findAll(Pageable pageable);
 
-    Stock findOne(Example<Stock> stock);
+    Stock findOne(Stock stock);
 }

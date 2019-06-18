@@ -4,8 +4,6 @@ import com.fudo.store.dto.PageableImpl;
 import com.fudo.store.model.Goods;
 import com.fudo.store.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,20 +20,17 @@ public class GoodsController {
     }
 
     @PostMapping("/batch")
-    public Object saveBatch(@RequestBody List<Goods> goods) {
-        return goodsService.saveBatch(goods);
+    public Object saveBatch(@RequestBody List<Goods> list) {
+        return goodsService.saveBatch(list);
     }
 
     @GetMapping("/all")
     public Object findAll(@RequestBody PageableImpl pageable) {
-        return goodsService.listAll(pageable.getPageable());
+        return goodsService.findAll(pageable.getPageable());
     }
 
     @GetMapping
     public Object findOne(@RequestBody Goods goods) {
-        return goodsService.findOne(
-                Example.of(goods, ExampleMatcher.matching()
-                        .withMatcher("name", ExampleMatcher.GenericPropertyMatchers.contains())
-                        .withIgnorePaths("createTime")));
+        return goodsService.findOne(goods);
     }
 }

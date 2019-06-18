@@ -7,6 +7,7 @@ import com.fudo.store.service.GoodsService;
 import com.fudo.store.type.BaseEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -29,12 +30,15 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
-    public Page<Goods> listAll(Pageable pageable) {
+    public Page<Goods> findAll(Pageable pageable) {
         return goodsRepo.findAll(pageable);
     }
 
     @Override
-    public Goods findOne(Example<Goods> goods) {
-        return goodsRepo.findOne(goods).orElseThrow(() -> new BaseException(BaseEnum.DATA_NOT_FOND.getMessage()));
+    public Goods findOne(Goods goods) {
+        return goodsRepo.findOne(Example.of(goods, ExampleMatcher.matching()
+                .withMatcher("name", ExampleMatcher.GenericPropertyMatchers.contains())
+                .withIgnorePaths("createTime")))
+                .orElseThrow(() -> new BaseException(BaseEnum.DATA_NOT_FOND.getMessage()));
     }
 }
