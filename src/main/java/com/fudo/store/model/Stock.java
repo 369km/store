@@ -71,6 +71,7 @@ public class Stock extends BaseModel {
     public void setProfit(BigDecimal profit) {
         this.profit = profit;
     }
+
     public LocalDateTime getModifyTime() {
         return modifyTime;
     }

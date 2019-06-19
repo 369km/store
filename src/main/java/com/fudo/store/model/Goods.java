@@ -1,12 +1,14 @@
 package com.fudo.store.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "goods")
-public class Goods extends BaseModel{
+public class Goods extends BaseModel {
     @Column(name = "name")
     private String name;
     @Column(name = "specs")
@@ -49,6 +51,7 @@ public class Goods extends BaseModel{
     public void setSellPrice(BigDecimal sellPrice) {
         this.sellPrice = sellPrice;
     }
+
     public LocalDateTime getModifyTime() {
         return modifyTime;
     }
