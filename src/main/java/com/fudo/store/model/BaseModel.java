@@ -1,5 +1,7 @@
 package com.fudo.store.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -9,6 +11,7 @@ public class BaseModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     protected Integer id;
+    @JsonFormat(pattern = "yyyy-mm-dd hh:MM:ss")
     @Column(name = "create_time", updatable = false)
     protected LocalDateTime createTime = LocalDateTime.now();
 

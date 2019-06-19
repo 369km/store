@@ -1,5 +1,7 @@
 package com.fudo.store.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -17,6 +19,7 @@ public class Goods extends BaseModel {
     private BigDecimal buyPrice;
     @Column(name = "sell_price")
     private BigDecimal sellPrice;
+    @JsonFormat(pattern = "yyyy-mm-dd hh:MM:ss")
     @Column(name = "modify_time")
     protected LocalDateTime modifyTime = LocalDateTime.now();
 

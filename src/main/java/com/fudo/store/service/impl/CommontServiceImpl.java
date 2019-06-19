@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -50,6 +51,7 @@ public class CommontServiceImpl implements CommontService {
         } else {
             stock.setGoodsId(buyGoods.getGoodsId());
         }
+        stock.setModifyTime(LocalDateTime.now());
         stock.setTotal(NumberUtil.nullToLong(stock.getTotal()) + buyGoods.getAmount());
         stock.setRemains(stock.getTotal() - NumberUtil.nullToLong(stock.getSells()));
         Optional<Goods> goodsFromDb = goodsRepo.findById(buyGoods.getGoodsId());
@@ -81,6 +83,7 @@ public class CommontServiceImpl implements CommontService {
     }
 
     private Stock buildSellStock(Stock stock, SellGoods sellGoods) {
+        stock.setModifyTime(LocalDateTime.now());
         stock.setSells(NumberUtil.nullToLong(stock.getSells()) + sellGoods.getAmount());
         stock.setRemains(stock.getTotal() - stock.getSells());
         if (stock.getRemains() < 0) {
