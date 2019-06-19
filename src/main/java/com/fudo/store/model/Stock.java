@@ -1,11 +1,13 @@
 package com.fudo.store.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "stock")
-public class Stock extends BaseModel{
+public class Stock extends BaseModel {
     @Column(name = "goods_id")
     private Integer goodsId;
     @Column(name = "total")

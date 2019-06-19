@@ -1,7 +1,6 @@
 package com.fudo.store.controller;
 
 import com.fudo.store.dto.PageableImpl;
-import com.fudo.store.model.Stock;
 import com.fudo.store.service.StockService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,13 +14,8 @@ public class StockController {
     @Autowired
     private StockService stockService;
 
-    @GetMapping("/all")
+    @GetMapping("/page")
     public Object findAll(@RequestBody PageableImpl pageable) {
         return stockService.findAll(pageable.getPageable());
-    }
-
-    @GetMapping
-    public Object findOne(@RequestBody Stock stock) {
-        return stockService.findOne(stock);
     }
 }

@@ -6,6 +6,4 @@ import org.springframework.data.domain.Pageable;
 
 public interface StockService {
     Page<Stock> findAll(Pageable pageable);
-
-    Stock findOne(Stock stock);
 }

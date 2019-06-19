@@ -3,11 +3,11 @@ package com.fudo.store.service.impl;
 import com.fudo.store.exception.BaseException;
 import com.fudo.store.model.Supplier;
 import com.fudo.store.repository.SupplierRepo;
+import com.fudo.store.service.CommontService;
 import com.fudo.store.service.SupplierService;
 import com.fudo.store.type.BaseEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -18,6 +18,8 @@ import java.util.List;
 public class SupplierServiceImpl implements SupplierService {
     @Autowired
     private SupplierRepo supplierRepo;
+    @Autowired
+    private CommontService commontService;
 
     @Override
     public Supplier save(Supplier supplier) {
@@ -36,9 +38,7 @@ public class SupplierServiceImpl implements SupplierService {
 
     @Override
     public Supplier findOne(Supplier supplier) {
-        return supplierRepo.findOne(Example.of(supplier, ExampleMatcher.matching()
-                .withMatcher("name", ExampleMatcher.GenericPropertyMatchers.contains())
-                .withIgnorePaths("createTime")))
+        return supplierRepo.findOne(Example.of(supplier, commontService.selectLikeName()))
                 .orElseThrow(() -> new BaseException(BaseEnum.DATA_NOT_FOND.getMessage()));
     }
 }

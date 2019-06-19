@@ -24,7 +24,7 @@ public class SupplierController {
         return supplierService.saveBatch(list);
     }
 
-    @GetMapping("/all")
+    @GetMapping("/page")
     public Object findAll(@RequestBody PageableImpl pageable) {
         return supplierService.findAll(pageable.getPageable());
     }

@@ -24,7 +24,7 @@ public class BuyGoodsController {
         return buyGoodsService.saveBatch(list);
     }
 
-    @GetMapping("/all")
+    @GetMapping("/page")
     public Object findAll(@RequestBody PageableImpl pageable) {
         return buyGoodsService.findAll(pageable.getPageable());
     }

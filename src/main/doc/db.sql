@@ -16,7 +16,8 @@ CREATE TABLE IF NOT EXISTS store.`goods`
     buy_price  DECIMAL      NOT NULL,
     sell_price DECIMAL      NOT NULL,
     create_time DATETIME NOT NULL,
-    creator_id INT NOT NULL
+    creator_id INT NOT NULL,
+    modify_time DATETIME NOT NULL
 )
     ENGINE = InnoDB
     DEFAULT CHARSET = utf8
@@ -30,7 +31,8 @@ CREATE TABLE IF NOT EXISTS store.`supplier`
     phone   varchar(11) NOT NULL,
     address varchar(50) NOT NULL,
     create_time DATETIME NOT NULL,
-    creator_id INT NOT NULL
+    creator_id INT NOT NULL,
+    modify_time DATETIME NOT NULL
 )
     ENGINE = InnoDB
     DEFAULT CHARSET = utf8
@@ -46,7 +48,9 @@ CREATE TABLE IF NOT EXISTS store.`stock`
     cost     DECIMAL NOT NULL,
     profit   DECIMAL NOT NULL,
     create_time DATETIME NOT NULL,
-    creator_id INT NOT NULL
+    creator_id INT NOT NULL,
+    goods_name varchar(10) NOT NULL,
+    modify_time DATETIME NOT NULL
 )
     ENGINE = InnoDB
     DEFAULT CHARSET = utf8
@@ -58,7 +62,8 @@ CREATE TABLE IF NOT EXISTS store.`buy_goods`
     goods_id INT NOT NULL,
     amount   INT NOT NULL,
     create_time DATETIME NOT NULL,
-    creator_id INT NOT NULL
+    creator_id INT NOT NULL,
+    modify_time DATETIME NOT NULL
 )
     ENGINE = InnoDB
     DEFAULT CHARSET = utf8
@@ -70,7 +75,8 @@ CREATE TABLE IF NOT EXISTS store.`sell_goods`
     goods_id INT NOT NULL,
     amount   INT NOT NULL,
     create_time DATETIME NOT NULL,
-    creator_id INT NOT NULL
+    creator_id INT NOT NULL,
+    modify_time DATETIME NOT NULL
 )
     ENGINE = InnoDB
     DEFAULT CHARSET = utf8
