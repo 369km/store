@@ -11,10 +11,6 @@ public class BaseModel {
     protected Integer id;
     @Column(name = "create_time", updatable = false)
     protected LocalDateTime createTime = LocalDateTime.now();
-    @Column(name = "modify_time")
-    protected LocalDateTime modifyTime = LocalDateTime.now();
-    @Column(name = "creator_id", updatable = false)
-    protected Integer creatorId;
 
     public Integer getId() {
         return id;
@@ -30,21 +26,5 @@ public class BaseModel {
 
     public void setCreateTime(LocalDateTime createTime) {
         this.createTime = createTime;
-    }
-
-    public Integer getCreatorId() {
-        return creatorId;
-    }
-
-    public void setCreatorId(Integer creatorId) {
-        this.creatorId = creatorId;
-    }
-
-    public LocalDateTime getModifyTime() {
-        return modifyTime;
-    }
-
-    public void setModifyTime(LocalDateTime modifyTime) {
-        this.modifyTime = modifyTime;
     }
 }

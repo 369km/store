@@ -24,7 +24,7 @@ public class BuyGoodsServiceImpl implements BuyGoodsService {
     @Autowired
     private CommontService commontService;
 
-    @Transactional
+    @Transactional(rollbackFor = {Exception.class})
     @Override
     public com.fudo.store.model.BuyGoods save(com.fudo.store.model.BuyGoods buyGoods) {
         GoodsInfo goodsInfo = new GoodsInfo();

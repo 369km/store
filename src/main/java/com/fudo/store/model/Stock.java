@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "stock")
@@ -20,6 +21,8 @@ public class Stock extends BaseModel {
     private BigDecimal cost;
     @Column(name = "profit")
     private BigDecimal profit;
+    @Column(name = "modify_time")
+    protected LocalDateTime modifyTime = LocalDateTime.now();
 
     public Integer getGoodsId() {
         return goodsId;
@@ -67,5 +70,12 @@ public class Stock extends BaseModel {
 
     public void setProfit(BigDecimal profit) {
         this.profit = profit;
+    }
+    public LocalDateTime getModifyTime() {
+        return modifyTime;
+    }
+
+    public void setModifyTime(LocalDateTime modifyTime) {
+        this.modifyTime = modifyTime;
     }
 }

@@ -1,6 +1,7 @@
 package com.fudo.store.model;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "supplier")
@@ -13,6 +14,8 @@ public class Supplier extends BaseModel{
     private String phone;
     @Column(name = "address")
     private String address;
+    @Column(name = "modify_time")
+    protected LocalDateTime modifyTime = LocalDateTime.now();
 
     public String getName() {
         return name;
@@ -44,5 +47,12 @@ public class Supplier extends BaseModel{
 
     public void setAddress(String address) {
         this.address = address;
+    }
+    public LocalDateTime getModifyTime() {
+        return modifyTime;
+    }
+
+    public void setModifyTime(LocalDateTime modifyTime) {
+        this.modifyTime = modifyTime;
     }
 }

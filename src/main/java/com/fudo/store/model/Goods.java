@@ -2,6 +2,7 @@ package com.fudo.store.model;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "goods")
@@ -14,6 +15,8 @@ public class Goods extends BaseModel{
     private BigDecimal buyPrice;
     @Column(name = "sell_price")
     private BigDecimal sellPrice;
+    @Column(name = "modify_time")
+    protected LocalDateTime modifyTime = LocalDateTime.now();
 
     public String getName() {
         return name;
@@ -45,5 +48,12 @@ public class Goods extends BaseModel{
 
     public void setSellPrice(BigDecimal sellPrice) {
         this.sellPrice = sellPrice;
+    }
+    public LocalDateTime getModifyTime() {
+        return modifyTime;
+    }
+
+    public void setModifyTime(LocalDateTime modifyTime) {
+        this.modifyTime = modifyTime;
     }
 }

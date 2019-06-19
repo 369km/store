@@ -13,6 +13,7 @@ import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class SellGoodsServiceImpl implements SellGoodsService {
     @Autowired
     private CommontService commontService;
 
+    @Transactional(rollbackFor = {Exception.class})
     @Override
     public SellGoods save(SellGoods sellGoods) {
         GoodsInfo goodsInfo = new GoodsInfo();
