@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS store.`user`
     ENGINE = InnoDB
     DEFAULT CHARSET = utf8
     COLLATE = utf8_general_ci;
+CREATE UNIQUE INDEX user_name_IDX USING BTREE ON store.`user` (name);
 
 CREATE TABLE IF NOT EXISTS store.`goods`
 (
@@ -21,6 +22,7 @@ CREATE TABLE IF NOT EXISTS store.`goods`
     ENGINE = InnoDB
     DEFAULT CHARSET = utf8
     COLLATE = utf8_general_ci;
+CREATE UNIQUE INDEX goods_name_IDX USING BTREE ON store.goods (name,specs);
 
 CREATE TABLE IF NOT EXISTS store.`supplier`
 (

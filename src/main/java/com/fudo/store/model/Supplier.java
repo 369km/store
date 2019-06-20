@@ -18,7 +18,7 @@ public class Supplier extends BaseModel {
     private String phone;
     @Column(name = "address")
     private String address;
-    @JsonFormat(pattern = "yyyy-mm-dd hh:MM:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     @Column(name = "modify_time")
     protected LocalDateTime modifyTime = LocalDateTime.now();
 

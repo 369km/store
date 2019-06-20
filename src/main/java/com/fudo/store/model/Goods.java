@@ -19,7 +19,7 @@ public class Goods extends BaseModel {
     private BigDecimal buyPrice;
     @Column(name = "sell_price")
     private BigDecimal sellPrice;
-    @JsonFormat(pattern = "yyyy-mm-dd hh:MM:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     @Column(name = "modify_time")
     protected LocalDateTime modifyTime = LocalDateTime.now();
 

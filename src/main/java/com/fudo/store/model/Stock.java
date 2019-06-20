@@ -23,7 +23,7 @@ public class Stock extends BaseModel {
     private BigDecimal cost;
     @Column(name = "profit")
     private BigDecimal profit;
-    @JsonFormat(pattern = "yyyy-mm-dd hh:MM:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     @Column(name = "modify_time")
     protected LocalDateTime modifyTime = LocalDateTime.now();
 
