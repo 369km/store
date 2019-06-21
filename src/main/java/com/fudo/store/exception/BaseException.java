@@ -9,8 +9,8 @@ public class BaseException extends RuntimeException {
         super(baseEnum.getMessage());
     }
 
-    public BaseException(String message, Object data) {
-        super(message);
+    public BaseException(BaseEnum baseEnum, Object data) {
+        this(baseEnum);
         this.data = data;
     }
 

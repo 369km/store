@@ -87,7 +87,7 @@ public class CommontServiceImpl implements CommontService {
         stock.setSells(NumberUtil.nullToLong(stock.getSells()) + sellGoods.getAmount());
         stock.setRemains(stock.getTotal() - stock.getSells());
         if (stock.getRemains() < 0) {
-            throw new BaseException(BaseEnum.INSUFFICIENT_STOCK.getMessage(), sellGoods);
+            throw new BaseException(BaseEnum.INSUFFICIENT_STOCK, sellGoods);
         }
         Optional<Goods> goodsFromDb = goodsRepo.findById(sellGoods.getGoodsId());
         stock.setProfit(NumberUtil.nullToDecimal(stock.getProfit()).add(goodsFromDb.get().getSellPrice().subtract(goodsFromDb.get().getBuyPrice()).multiply(BigDecimal.valueOf(sellGoods.getAmount()))));
