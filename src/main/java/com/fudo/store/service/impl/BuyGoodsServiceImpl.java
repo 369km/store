@@ -44,6 +44,6 @@ public class BuyGoodsServiceImpl implements BuyGoodsService {
     @Override
     public BuyGoods findOne(BuyGoods buyGoods) {
         return buyGoodsRepo.findOne(Example.of(buyGoods, commontService.selectLikeName()))
-                .orElseThrow(() -> new BaseException(BaseEnum.DATA_NOT_FOND.getMessage()));
+                .orElseThrow(() -> new BaseException(BaseEnum.DATA_NOT_FOND));
     }
 }

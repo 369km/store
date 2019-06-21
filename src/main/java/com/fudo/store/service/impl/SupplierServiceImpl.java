@@ -39,6 +39,6 @@ public class SupplierServiceImpl implements SupplierService {
     @Override
     public Supplier findOne(Supplier supplier) {
         return supplierRepo.findOne(Example.of(supplier, commontService.selectLikeName()))
-                .orElseThrow(() -> new BaseException(BaseEnum.DATA_NOT_FOND.getMessage()));
+                .orElseThrow(() -> new BaseException(BaseEnum.DATA_NOT_FOND));
     }
 }
