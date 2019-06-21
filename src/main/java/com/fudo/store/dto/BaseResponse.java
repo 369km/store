@@ -53,4 +53,8 @@ public class BaseResponse {
         code = ResponseCodeEnum.FAIL;
     }
 
+    public BaseResponse(String message, Object data) {
+        this(message);
+        this.data = data;
+    }
 }

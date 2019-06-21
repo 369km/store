@@ -62,4 +62,36 @@ public class Goods extends BaseModel {
     public void setModifyTime(LocalDateTime modifyTime) {
         this.modifyTime = modifyTime;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Goods goods = (Goods) o;
+
+        if (!name.equals(goods.name)) return false;
+        return specs.equals(goods.specs);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name.hashCode();
+        result = 31 * result + specs.hashCode();
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Goods{" +
+                "name='" + name + '\'' +
+                ", specs='" + specs + '\'' +
+                ", buyPrice=" + buyPrice +
+                ", sellPrice=" + sellPrice +
+                ", modifyTime=" + modifyTime +
+                ", id=" + id +
+                ", createTime=" + createTime +
+                '}';
+    }
 }

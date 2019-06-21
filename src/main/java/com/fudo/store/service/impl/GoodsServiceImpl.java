@@ -12,7 +12,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 
 @Service
 public class GoodsServiceImpl implements GoodsService {
@@ -23,11 +26,21 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Override
     public Goods save(Goods goods) {
+        checkDuplicateEntry(goods);
         return goodsRepo.save(goods);
+    }
+
+    private void checkDuplicateEntry(Goods goods) {
+        Goods db = goodsRepo.findByNameAndSpecs(goods.getName(), goods.getSpecs());
+        if (Objects.nonNull(db)) {
+            throw new BaseException(BaseEnum.DUPLICATE_ENTRY, db);
+        }
     }
 
     @Override
     public List<Goods> saveBatch(List<Goods> list) {
+        Set<Goods> set = new HashSet<>(list);
+        set.forEach(this::checkDuplicateEntry);
         return goodsRepo.saveAll(list);
     }
 
