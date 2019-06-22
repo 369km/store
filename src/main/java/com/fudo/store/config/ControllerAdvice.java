@@ -1,4 +1,4 @@
-package com.fudo.store.controller;
+package com.fudo.store.config;
 
 import com.fudo.store.dto.BaseResponse;
 import com.fudo.store.exception.BaseException;
@@ -30,7 +30,7 @@ public class ControllerAdvice implements ResponseBodyAdvice {
         }
     }
 
-    private final static Logger LOG = LoggerFactory.getLogger(com.fudo.store.controller.ControllerAdvice.class);
+    private final static Logger LOG = LoggerFactory.getLogger(ControllerAdvice.class);
 
     @ExceptionHandler(Exception.class)
     @ResponseBody
