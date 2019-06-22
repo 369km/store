@@ -5,6 +5,8 @@ import com.fudo.store.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -16,8 +18,8 @@ public class UserController {
         return userService.save(user);
     }
 
-    @GetMapping
-    public Object login(@RequestBody User user) {
-        return userService.find(user);
+    @GetMapping("/login")
+    public Object login(@RequestBody User user, HttpServletRequest request) {
+        return userService.login(user);
     }
 }
