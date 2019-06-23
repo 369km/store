@@ -20,6 +20,11 @@ public class UserController {
 
     @GetMapping("/login")
     public Object login(@RequestBody User user, HttpServletRequest request) {
-        return userService.login(user);
+        return userService.login(user, request);
+    }
+
+    @GetMapping("/logout")
+    public void logout(HttpServletRequest request) {
+        userService.logout(request);
     }
 }

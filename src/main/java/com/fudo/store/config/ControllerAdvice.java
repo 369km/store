@@ -35,7 +35,7 @@ public class ControllerAdvice implements ResponseBodyAdvice {
     @ExceptionHandler(Exception.class)
     @ResponseBody
     public BaseResponse handle(Exception e) {
-        LOG.error("exception:" + e);
+        LOG.error("exception:" , e);
         return new BaseResponse(e.getMessage());
     }
 
