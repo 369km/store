@@ -1,6 +1,7 @@
-target
-**/target/**
-**/target
+target/classes
+target/maven-*
+target/generated-sources
+target/**.original
 .settings
 .classpath
 .project
