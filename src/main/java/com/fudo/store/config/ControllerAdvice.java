@@ -14,7 +14,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import java.util.Objects;
 
-@org.springframework.web.bind.annotation.ControllerAdvice
+//@org.springframework.web.bind.annotation.ControllerAdvice
 public class ControllerAdvice implements ResponseBodyAdvice {
     @Override
     public boolean supports(MethodParameter methodParameter, Class aClass) {
