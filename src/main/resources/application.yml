@@ -15,5 +15,5 @@ spring:
         format_sql: true
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
 
-  profiles:
-    active: docker
+  redis:
+    host: 172.17.0.3
