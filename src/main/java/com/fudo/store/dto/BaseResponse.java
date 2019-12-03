@@ -10,7 +10,18 @@ public class BaseResponse {
     private LocalDateTime time = LocalDateTime.now();
     private Object data;
     private String message;
-    private ResponseCodeEnum code = ResponseCodeEnum.SUCCESS;
+    private ResponseCodeEnum code ;
+
+    public BaseResponse(Object data, String message, ResponseCodeEnum code) {
+        this.data = data;
+        this.message = message;
+        this.code = code;
+    }
+
+    public BaseResponse(String message, ResponseCodeEnum code) {
+        this.message = message;
+        this.code = code;
+    }
 
     public LocalDateTime getTime() {
         return time;
@@ -44,17 +55,4 @@ public class BaseResponse {
         this.code = code;
     }
 
-    public BaseResponse(Object data) {
-        this.data = data;
-    }
-
-    public BaseResponse(String message) {
-        this.message = message;
-        code = ResponseCodeEnum.FAIL;
-    }
-
-    public BaseResponse(String message, Object data) {
-        this(message);
-        this.data = data;
-    }
 }
