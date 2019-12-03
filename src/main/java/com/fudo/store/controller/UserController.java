@@ -3,12 +3,11 @@ package com.fudo.store.controller;
 import com.fudo.store.model.User;
 import com.fudo.store.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
-@Controller
+@RestController
 @RequestMapping("/user")
 public class UserController {
     @Autowired
@@ -20,8 +19,8 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public Object login(@ModelAttribute User user, HttpServletRequest request) {
-        return userService.login(user, request);
+    public Object login(@RequestParam String name, @RequestParam String password, HttpServletRequest request) {
+        return userService.login(new User(name, password), request);
     }
 
     @GetMapping("/logout")
