@@ -19,3 +19,5 @@ spring:
     host: 127.0.0.1
   mvc:
     static-path-pattern: /static/**
+  thymeleaf:
+    cache: false
