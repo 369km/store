@@ -19,12 +19,6 @@ public class WebConfig implements WebMvcConfigurer  {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(loginInterceptor)
                 .addPathPatterns("/**")
-                .excludePathPatterns(Arrays.asList("/", "/user/login", "/user/logout","/static/**"));
-    }
-
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/")
-                .addResourceLocations("classpath:/static/");
+                .excludePathPatterns(Arrays.asList("/", "/user/login", "/user/logout"));
     }
 }
